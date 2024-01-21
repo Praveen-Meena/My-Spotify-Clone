@@ -14,6 +14,12 @@
     <div class="container flex bg-black">
 
         <div class="left">
+
+                <!-- <img class="invert" id="close" src="images/close.svg" alt="" style="position: absolute; right: 31px; top: 25px; width: 30px;"> -->
+                <div class="close">
+                    <img width="30" class="invert" src="images/close.svg" alt="">
+                </div>
+             
             <div class="home bg-grey rounded m-1 p-1">
                 <div class="logo"><img width="110" class="invert" src="/images/logo.svg" alt=""></div>
                 <ul>
@@ -52,12 +58,16 @@
             
             <div class="header">
                 <div class="nav">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15 6C15 6 9.00001 10.4189 9 12C8.99999 13.5812 15 18 15 18" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>     
+                    <div class="hamburgerCont">
+                        <img width="40px" class="hamburger invert" src="images/hamburger.svg" alt="">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 6C15 6 9.00001 10.4189 9 12C8.99999 13.5812 15 18 15 18" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>  
+                    </div>
+                       
                 </div>
 
                 <div class="buttons">
@@ -155,7 +165,15 @@
                             <img id="play" width="35" src="/images/playbtn.svg" alt="">
                             <img id="next" width="35" src="/images/playnext.svg" alt="">
                         </div>
-                        <div class="songtime">
+                        <div class="timevol">
+                            <div class="songtime">
+                            </div>
+                            <div class="volume">
+                                <img width="25" src="images/volume.svg" alt="">
+                                <div class="range">
+                                    <input type="range" name="volume" id="">
+                                </div>
+                            </div>
                         </div>
                     </div>
 

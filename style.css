@@ -112,6 +112,21 @@ body{
     margin: 0 12px;
 }
 
+.hamburger{
+    display: none;
+}
+
+.hamburgerCont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+}
+
+.close{
+    display: none;
+}
+
 .signupbtn{
     background-color: rgb(34, 34, 34);;
     color: rgb(118, 113, 113);
@@ -281,21 +296,112 @@ body{
     position: relative;
     bottom: 6px;
     left: 0;
+    transition: left .5s;
+}
+
+.timevol{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .songbuttons img{
     cursor: pointer;
 }
 
-.songinfo, .songtime{
+.songinfo{
     color: black;
     padding: 0 12px;
+    width: 250px;
+}
+
+.songtime{
+    color: black;
+    padding: 0 12px;
+    width: 125px;
+}
+
+.volume{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
 }
 
 .abovebar{
     width: 98%;
     display: flex;
     justify-content: space-between;
+    margin: 12px 0;
+}
+
+@media (max-width:1200px) {
+    .left{
+        background-color: black;
+        position: absolute;
+        left: -120%;
+        transition: all .3s;
+        z-index: 1;
+        width: 373px;
+        padding: 0;
+    }
+
+    .right{
+        width: 100vw; 
+    }
+
+    .playbar{
+        width: calc(100vw - 60px);
+    }
+
+    .seekbar{
+        width: calc(100vw - 70px);
+    }
+
+    .hamburger{
+        display: block;
+    }
+
+    .left .close {
+        position: absolute;
+        right: 31px;
+        top: 25px;
+        width: 29px;
+    }
+
+    .close {
+        display: block;
+    }
+
+    .card{
+        width: 45vw;
+    }
+
+    .cardContainer{
+        justify-content: center;
+    }
+
+    .playbar{
+        z-index: 1;
+    }
+
+    .abovebar{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .songinfo, .songtime{
+        width: auto;  
+    }
+
+    .timevol{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 13px;
+    }
 }
 
 
