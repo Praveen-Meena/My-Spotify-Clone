@@ -114,6 +114,7 @@ body{
 
 .hamburger{
     display: none;
+    cursor: pointer;
 }
 
 .hamburgerCont{
@@ -176,6 +177,12 @@ body{
     padding-top: 15px;
     position: relative;
     transition: all .9s;
+}
+
+.card:hover{
+    background-color: rgb(105, 103, 103);
+    cursor: pointer;
+    --a:1;
 }
 
 .card img{
@@ -326,6 +333,11 @@ body{
     gap: 12px;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+}
+
+.range input{
+    cursor: pointer;
 }
 
 .abovebar{
@@ -401,6 +413,12 @@ body{
         justify-content: space-evenly;
         align-items: center;
         gap: 13px;
+    }
+}
+
+@media (max-width:400px){
+    .card{
+        width: 84vw;
     }
 }
 
