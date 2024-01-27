@@ -24,12 +24,14 @@ async function getSongs(folder)
     currFolder = folder; 
     // let a = await fetch(`http://127.0.0.1:5500/${folder}/`);   // this we used when run this site locally
     let a = await fetch(`/${folder}/`); 
+    console.log(a);
     let response = await a.text(); 
-    console.log(response);
     let div = document.createElement("div"); 
     div.innerHTML = response; 
     let as = div.getElementsByTagName("a");   //all anchor tags 
     songs = []; 
+    console.log(as);
+    console.log(songs);
 
     for (let index = 0; index < as.length; index++) {
         const element = as[index];
