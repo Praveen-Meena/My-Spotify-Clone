@@ -29,7 +29,7 @@ async function getSongs(folder)
     let div = document.createElement("div"); 
     div.innerHTML = response; 
     let as = div.getElementsByTagName("a");   //all anchor tags 
-    console.log(as);
+    // console.log(as);
     songs = []; 
 
     
