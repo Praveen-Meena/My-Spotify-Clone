@@ -39,7 +39,7 @@ async function getSongs(folder)
             songs.push(element.href.split(`/${folder}/`)[1]);
         }
     }
-    console.log(songs);
+    // console.log(songs);
 
 
 
@@ -97,13 +97,16 @@ async function displayAlbums(){
 
     for (let index = 0; index < array.length; index++) {
         const e = array[index];
-        // console.log(e.href);
+        console.log(e.href);
         if(e.href.includes("/songs/")){
             let folder = e.href.split("/").slice(-1)[0]; 
+            console.log(folder);
             // Get the metadata of the folder
             // let a = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.json`);      //this we used when run this site locally
             let a = await fetch(`/songs/${folder}/info.json`);
+            console.log(a); 
             let response = await a.json(); 
+            console.log(response);
             cardContainer.innerHTML = cardContainer.innerHTML + 
                                                                 `<div data-folder="${folder}" class="card">
                                                                     <div class="play">
