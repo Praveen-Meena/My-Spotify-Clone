@@ -22,7 +22,8 @@ function secondsToMinutesAndSeconds(seconds) {
 async function getSongs(folder)
 {   
     currFolder = folder; 
-    let a = await fetch(`http://127.0.0.1:5500/${folder}/`); 
+    // let a = await fetch(`http://127.0.0.1:5500/${folder}/`);   // this we used when run this site locally
+    let a = await fetch(`/${folder}/`); 
     let response = await a.text(); 
     // console.log(response);
     let div = document.createElement("div"); 
@@ -80,7 +81,8 @@ const playMusic = (track, pause=false)=>{
 }
 
 async function displayAlbums(){
-    let a = await fetch(`http://127.0.0.1:5500/songs/`); 
+    // let a = await fetch(`http://127.0.0.1:5500/songs/`);   // this we used when run this site locally
+    let a = await fetch(`/songs/`);       
     let response = await a.text(); 
     let div = document.createElement("div"); 
     div.innerHTML = response; 
@@ -96,7 +98,8 @@ async function displayAlbums(){
         if(e.href.includes("/songs/")){
             let folder = e.href.split("/").slice(-1)[0]; 
             // Get the metadata of the folder
-            let a = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.json`); 
+            // let a = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.json`);      //this we used when run this site locally
+            let a = await fetch(`/songs/${folder}/info.json`);
             let response = await a.json(); 
             cardContainer.innerHTML = cardContainer.innerHTML + 
                                                                 `<div data-folder="${folder}" class="card">
@@ -119,6 +122,7 @@ async function displayAlbums(){
             // console.log(item.currentTarget.dataset.folder);
             songs =  await getSongs(`songs/${item.currentTarget.dataset.folder}`); 
             playMusic(songs[0]); 
+            document.querySelector(".left").style.left = 0; 
         })
     })
 }
@@ -198,6 +202,9 @@ async function main(){
     // Add an event listener to  Volume
     document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change",(e)=>{
         currentSong.volume = parseInt(e.target.value) / 100; 
+        if(currentSong.volume > 0){
+            document.querySelector(".volume>img").src = document.querySelector(".volume>img").src.replace = ("images/mute.svg","images/volume.svg"); 
+        }
     })
 
     // Add an Event listener to mute the Vol
@@ -214,6 +221,7 @@ async function main(){
             document.querySelector(".range").getElementsByTagName("input")[0].value = 10; 
         }
     })
+
 
 }
 main(); 

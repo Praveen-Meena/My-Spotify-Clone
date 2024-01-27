@@ -386,7 +386,7 @@ body{
     }
 
     .card{
-        width: 45vw;
+        width: 55vw;
     }
 
     .cardContainer{
@@ -414,11 +414,28 @@ body{
         align-items: center;
         gap: 13px;
     }
+
+    .cardContainer{
+        max-height: 50vh;
+    }
 }
 
-@media (max-width:400px){
+@media (max-width:500px){
     .card{
-        width: 84vw;
+        width: 100%; 
+    }
+
+    .header>*{
+        padding: 2px;
+    }
+
+    .buttons>*{
+        margin: 0 6px;
+    }
+
+    .cardContainer{
+        max-height: unset;
+        overflow-y: unset;
     }
 }
 
