@@ -25,7 +25,7 @@ async function getSongs(folder)
     // let a = await fetch(`http://127.0.0.1:5500/${folder}/`);   // this we used when run this site locally
     let a = await fetch(`/${folder}/`); 
     let response = await a.text(); 
-    // console.log(response);
+    console.log(response);
     let div = document.createElement("div"); 
     div.innerHTML = response; 
     let as = div.getElementsByTagName("a");   //all anchor tags 
