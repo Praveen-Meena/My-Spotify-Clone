@@ -4,6 +4,7 @@ let currentSong = new Audio();
 let songs; 
 let currFolder; 
 
+// Correct
 function secondsToMinutesAndSeconds(seconds) {
     if (isNaN(seconds) || seconds < 0) {
       return `00:00/00:00`;
@@ -18,7 +19,7 @@ function secondsToMinutesAndSeconds(seconds) {
     return `${formattedMinutes}:${formattedSeconds}`;
   }
   
-
+// Correct
 async function getSongs(folder)
 {   
     currFolder = folder; 
@@ -41,7 +42,7 @@ async function getSongs(folder)
     }
     // console.log(songs);
 
-
+// Correct
 
         // Show all the songs in the Playlist
         let songUL = document.querySelector(".songList").getElementsByTagName("ul")[0];
@@ -49,18 +50,18 @@ async function getSongs(folder)
         for (const song of songs) {
             songUL.innerHTML = songUL.innerHTML + 
                                                     `<li>
-                                                        <img class="invert" width="34" src="/images/music.svg" alt="">
+                                                        <img class="invert" width="34" src="images/music.svg" alt="">
                                                         <div class="info">
                                                             <div> ${song.replaceAll("%20", " ")}</div>
                                                             <div>Praveen</div>
                                                         </div>
                                                         <div class="playnow">
                                                             <span>Play Now</span>
-                                                            <img class="invert" src="/images/playbtn.svg" alt="">
+                                                            <img class="invert" src="images/playbtn.svg" alt="">
                                                         </div>
                                                     </li>`;
         }
-    
+// Correct
     
         // Attach an event Listener to each song
         Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach( e=>{
@@ -73,6 +74,8 @@ async function getSongs(folder)
     return songs; 
 }
 
+// Correct
+
 const playMusic = (track, pause=false)=>{
     currentSong.src = `/${currFolder}/` + track; 
     if(!pause){
@@ -82,6 +85,8 @@ const playMusic = (track, pause=false)=>{
     document.querySelector(".songinfo").innerHTML = decodeURI(track); 
     document.querySelector(".songtime").innerHTML = "00:00/00:00"; 
 }
+
+// Correct
 
 async function displayAlbums(){
     // let a = await fetch(`http://127.0.0.1:5500/songs/`);   // this we used when run this site locally
@@ -97,14 +102,14 @@ async function displayAlbums(){
 
     for (let index = 0; index < array.length; index++) {
         const e = array[index];
-        console.log(e.href);
-        if(e.href.includes("/songs/")){
+        // console.log(e.href);
+        if(e.href.includes("/songs/") && !e.href.includes(".htaccess")){
             let folder = e.href.split("/").slice(-1)[0]; 
             console.log(folder);
             // Get the metadata of the folder
             // let a = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.json`);      //this we used when run this site locally
             let a = await fetch(`/songs/${folder}/info.json`);
-            console.log(a); 
+            // console.log(a); 
             let response = await a.json(); 
             console.log(response);
             cardContainer.innerHTML = cardContainer.innerHTML + 
@@ -121,6 +126,8 @@ async function displayAlbums(){
         }
     }
 
+// Correct
+
     // Load the playlist Whenever card is clicked
     Array.from(document.getElementsByClassName("card")).forEach( e =>{
         // console.log(e)
@@ -128,10 +135,12 @@ async function displayAlbums(){
             // console.log(item.currentTarget.dataset.folder);
             songs =  await getSongs(`songs/${item.currentTarget.dataset.folder}`); 
             playMusic(songs[0]); 
-            document.querySelector(".left").style.left = 0; 
+            document.querySelector(".left").style.left = 0;  // More responsive by me
         })
     })
 }
+
+// Correct
  
 
 async function main(){
@@ -170,7 +179,7 @@ async function main(){
     document.querySelector(".seekbar").addEventListener("click", e=>{
         let percent = (e.offsetX/e.target.getBoundingClientRect().width) * 100 ; 
         document.querySelector(".circle").style.left = percent + "%"; 
-        currentSong.currentTime = (currentSong.duration * percent) / 100; 
+        currentSong.currentTime = ((currentSong.duration) * percent) / 100; 
     }) 
 
     // Add Event Listener to hamburger to view left library side
