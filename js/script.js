@@ -5,6 +5,8 @@ let songs;
 let currFolder; 
 
 // Correct
+
+// function to convert seconds to minutes
 function secondsToMinutesAndSeconds(seconds) {
     if (isNaN(seconds) || seconds < 0) {
       return `00:00/00:00`;
@@ -20,6 +22,8 @@ function secondsToMinutesAndSeconds(seconds) {
   }
   
 // Correct
+
+
 async function getSongs(folder)
 {   
     currFolder = folder; 
@@ -152,7 +156,7 @@ async function main(){
     playMusic(songs[0], true); 
 
     // Display all the albums on the page
-    await displayAlbums()
+    await displayAlbums();
 
 
     // Attach an event listener to previous, play, next buttons.
