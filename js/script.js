@@ -28,7 +28,8 @@ async function getSongs(folder)
 {   
     currFolder = folder; 
     // let a = await fetch(`http://127.0.0.1:5500/${folder}/`);   // this we used when run this site locally
-    let a = await fetch(`/${folder}/`); 
+    // let a = await fetch(`/${folder}/`); 
+    let a = await fetch(`https://song4u.netlify.app/${folder}/`); 
     // console.log(a);
     let response = await a.text(); 
     let div = document.createElement("div"); 
@@ -111,7 +112,8 @@ async function getSongsList(folder) {
 
 async function displayAlbums(){
     // let a = await fetch(`http://127.0.0.1:5500/songs/`);   // this we used when run this site locally
-    let a = await fetch(`/songs/`);    
+    // let a = await fetch(`/songs/`);    
+    let a = await fetch(`https://song4u.netlify.app/songs/`);    
     let response = await a.text(); 
     let div = document.createElement("div"); 
     div.innerHTML = response; 
@@ -129,7 +131,8 @@ async function displayAlbums(){
             let folder = e.href.split("/").slice(-1)[0]; 
             // Get the metadata of the folder
             // let a = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.json`);      //this we used when run this site locally
-            let a = await fetch(`/songs/${folder}/info.json`);
+            // let a = await fetch(`/songs/${folder}/info.json`);
+            let a = await fetch(`https://song4u.netlify.app/songs/${folder}/info.json`);
             let response = await a.json(); 
             cardContainer.innerHTML = cardContainer.innerHTML + 
                                                                 `<div data-folder="${folder}" class="card">
